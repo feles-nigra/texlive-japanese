@@ -2,9 +2,10 @@
 
 file=$1
 
-yes "quit()" | ptex2pdf -l $file > temp.log 2> error.log
+#yes "quit()" | ptex2pdf -l $file > temp.log 2> error.log
+yes "quit()" | xelatex $file > temp.log 2> error.log
 
-if grep -q "!" "temp.log"; then
+if grep -q "Warning" "temp.log"; then
   cat temp.log > latex_error
   awk '/\!/{flag=1} flag' temp.log | head
 else
