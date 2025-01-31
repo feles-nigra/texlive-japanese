@@ -2,7 +2,7 @@ FROM alpine:latest
 
 ENV PATH=/usr/local/texlive/2024/bin/x86_64-linuxmusl:$PATH
 
-RUN apk add --no-cache curl perl fontconfig-dev freetype-dev graphviz python3 openjdk11&& \
+RUN apk add --no-cache curl perl fontconfig-dev freetype-dev graphviz python3 openjdk11 inkscape&& \
     apk add --no-cache --virtual .fetch-deps xz tar wget && \
     mkdir /tmp/install-tl-unx && \
     curl -L ftp://tug.org/historic/systems/texlive/2024/install-tl-unx.tar.gz | \
